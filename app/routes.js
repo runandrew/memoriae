@@ -1,13 +1,16 @@
 // @flow
+// Required libraries
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
+
+// Required files
 import App from './containers/App';
 import HomePage from './containers/HomePage';
-import { settings } from './utils/userSettings';
+import { settings, setDbPath, checkDbPath } from './utils/userSettings';
 
 function appOnEnter () {
-  console.log('inside onEnter');
-  console.log(settings.getSync('dbPath'));
+  // Make sure that a db path is set
+  if (!checkDbPath()) setDbPath();
 }
 
 export default (
