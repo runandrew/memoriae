@@ -274,17 +274,3 @@ app.on('ready', async () => {
     mainWindow.setMenu(menu);
   }
 });
-
-// User settings
-
-// Create default settings object
-const defaults = {
-  dbPath: 'null'
-};
-
-const Config = require('electron-config');
-const config = new Config({
-  defaults
-});
-
-console.log('this is the db path', config.get('dbPath'));
