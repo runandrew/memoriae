@@ -5,9 +5,6 @@ import { routerMiddleware, push } from 'react-router-redux';
 import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
 
-
-
-
 const actionCreators = {
 
   push,
@@ -22,18 +19,18 @@ const router = routerMiddleware(hashHistory);
 
 // If Redux DevTools Extension is installed use it, otherwise use Redux compose
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+  ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
     // Options: http://extension.remotedev.io/docs/API/Arguments.html
     actionCreators,
-  }) :
-  compose;
+  })
+  : compose;
 /* eslint-enable no-underscore-dangle */
 const enhancer = composeEnhancers(
   applyMiddleware(thunk, router, logger)
 );
 
-export default function configureStore(initialState) {
+export default function configureStore (initialState) {
   const store = createStore(rootReducer, initialState, enhancer);
 
   if (module.hot) {
