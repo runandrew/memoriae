@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
+  "name": "memoriae",
+  "productName": "memoriae",
   "version": "0.10.0",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "description": "An open-source notebook for programmers.",
   "main": "main.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 jest \"(\\\\|/)test(\\\\|/)(?!.*e2e\\.spec\\.js).+\\.spec\\.js\"",
@@ -29,7 +29,7 @@
   },
   "browserslist": "electron 1.4",
   "build": {
-    "productName": "ElectronReact",
+    "productName": "memoriae",
     "appId": "org.develar.ElectronReact",
     "category": "public.app-category.tools",
     "dmg": {
