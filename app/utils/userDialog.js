@@ -3,7 +3,7 @@ const remote = require('electron').remote;
 const dialog = remote.dialog;
 const { settings } = require('./userSettings');
 
-const getDbPath = () => {
+const getDbPathUserInput = () => {
   let resultArr = dialog.showOpenDialog({
     properties: ['openDirectory']
   });
@@ -11,5 +11,5 @@ const getDbPath = () => {
 };
 
 module.exports = {
-  getDbPath
+  getDbPathUserInput
 };

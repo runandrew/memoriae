@@ -2,9 +2,9 @@
 const settings = require('electron-settings');
 
 // Required files
-const { getDbPath } = require('./userDialog');
+const { getDbPathUserInput } = require('./userDialog');
 
-settings.clearSync(); // TODO: temporary to simulate new user
+// settings.clearSync(); // TODO: temporary to simulate new user
 
 // Create events for logging
 // TODO: make only for development
@@ -27,12 +27,17 @@ const checkDbPath = () => {
 };
 
 const setDbPath = () => {
-  const newPath = getDbPath();
+  const newPath = getDbPathUserInput();
   addDbPath(newPath);
+};
+
+const getDbPath = () => {
+  return settings.getSync('dbPath');
 };
 
 module.exports = {
   settings,
   setDbPath,
+  getDbPath,
   checkDbPath
 };
