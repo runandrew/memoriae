@@ -17,7 +17,6 @@ const dbConnect = () => {
   db.defaults({ pages: [] })
   .write();
 
-  console.log('database connected');
   return db;
 };
 

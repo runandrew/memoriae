@@ -5,14 +5,16 @@ import { connect } from 'react-redux';
 
 // Required files
 import Home from '../components/Home';
-import Page from '../components/Page';
+import PanePages from './PanePages';
 import { dbConnect } from '../utils/database';
 
 /* -----------------    COMPONENT     ------------------ */
 
 const HomePage = ({ pages }) => (
   <div>
-    { pages.map((page, i) => (<Page page={ page } key={ i }/>)) }
+    <div className="pane-group">
+      <PanePages />
+    </div>
   </div>
 );
 

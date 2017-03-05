@@ -31,12 +31,8 @@ const mapProps = (state) => ({
 
 const mapDispatch = dispatch => ({
   homeOnEnter: () => {
-    if (!checkDbPath()) {
-      console.log('inside history push');
-      hashHistory.push('/newUser');
-    } else {
-      dispatch(fetchPages());
-    }
+    if (!checkDbPath()) hashHistory.push('/newUser'); // If there isn't an existing database, then go to new user page
+    else dispatch(fetchPages()); // If there is a database, then fetch the data
   }
 });
 

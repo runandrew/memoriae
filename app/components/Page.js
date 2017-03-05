@@ -6,8 +6,7 @@ export default class Page extends Component {
   render () {
     return (
       <div>
-        <h1>{ this.props.page.title }</h1>
-        <p>{ this.props.page.text }</p>
+        <h5>{ this.props.page.title }</h5>
       </div>
     );
   }
