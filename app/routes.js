@@ -9,6 +9,7 @@ import HomePage from './containers/HomePage';
 import NewUser from './containers/NewUser';
 import { setDbPath, checkDbPath } from './utils/userSettings';
 import { dbConnect } from './utils/database';
+import { fetchPages } from './reducers/pages';
 
 function homeOnEnter () {
   // Make sure that a db path is set

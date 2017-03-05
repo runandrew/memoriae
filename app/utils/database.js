@@ -18,6 +18,7 @@ const dbConnect = () => {
   .write();
 
   console.log('database connected');
+  return db;
 };
 
 module.exports = {
