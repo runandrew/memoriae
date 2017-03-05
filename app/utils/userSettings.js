@@ -4,7 +4,7 @@ const settings = require('electron-settings');
 // Required files
 const { getDbPathUserInput } = require('./userDialog');
 
-// settings.clearSync(); // TODO: temporary to simulate new user
+settings.clearSync(); // TODO: temporary to simulate new user
 
 // Create events for logging
 // TODO: make only for development
