@@ -12,19 +12,9 @@ import { setDbPath, checkDbPath } from './utils/userSettings';
 import { dbConnect } from './utils/database';
 import { fetchPages } from './reducers/pages';
 
-function homeOnEnter () {
-  // Make sure that a db path is set
-  if (!checkDbPath()) {
-    console.log('inside history push');
-    hashHistory.push('/newUser');
-  } else {
-    dbConnect();
-  }
-}
-
 /* -----------------    COMPONENT     ------------------ */
 
-const Routes = () => (
+const Routes = ({ homeOnEnter }) => (
   <Router history={ hashHistory }>
     <Route path="/" component={ App }>
       <IndexRoute component={ HomePage } onEnter={ homeOnEnter }/>
@@ -40,7 +30,14 @@ const mapProps = (state) => ({
 });
 
 const mapDispatch = dispatch => ({
-  fetchPages
+  homeOnEnter: () => {
+    if (!checkDbPath()) {
+      console.log('inside history push');
+      hashHistory.push('/newUser');
+    } else {
+      dispatch(fetchPages());
+    }
+  }
 });
 
 export default connect(mapProps, mapDispatch)(Routes);

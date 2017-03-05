@@ -5,32 +5,22 @@ import { connect } from 'react-redux';
 
 // Required files
 import Home from '../components/Home';
+import Page from '../components/Page';
 import { dbConnect } from '../utils/database';
 
-function grabPosts () {
-  const db = dbConnect();
-
-  console.log(db.get('pages').value());
-}
 /* -----------------    COMPONENT     ------------------ */
 
-class HomePage extends Component {
-  render () {
-    return (
-      <div>
-        <Home />
-        <button onClick={ grabPosts }>
-          Get data
-        </button>
-      </div>
-
-    );
-  }
-}
+const HomePage = ({ pages }) => (
+  <div>
+    { pages.map((page, i) => (<Page page={ page } key={ i }/>)) }
+  </div>
+);
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapProps = null;
+const mapProps = (state) => ({
+  pages: state.pages
+});
 const mapDispatch = null;
 
 export default connect(mapProps, mapDispatch)(HomePage);

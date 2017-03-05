@@ -8,7 +8,7 @@ export default class Home extends Component {
     return (
       <div>
         <div className={styles.container} data-tid="container">
-          <h1>Homepage1</h1>
+          <h1>Homepage</h1>
 
         </div>
       </div>
