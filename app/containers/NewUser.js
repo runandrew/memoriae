@@ -7,7 +7,8 @@ export default class NewUser extends Component {
   render () {
     return (
       <div>
-        <h1>New User Page</h1>
+        <h1>Memoriae</h1>
+        <h3>Get started: </h3>
           <button onClick={ () => {
             setDbPath();
             hashHistory.push('/');
