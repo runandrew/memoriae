@@ -1,6 +1,10 @@
 // @flow
+// Required libraries
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+
+// Required files
+import TagList from './TagList.js';
 
 export default class PageListItem extends Component {
   render () {
@@ -13,9 +17,7 @@ export default class PageListItem extends Component {
         <h5 className="noselect">{ this.props.page.get('title') }</h5>
 
         <div>
-          { this.props.page.get('tags').map((tag, i) => (
-            <span className="tag-group-item noselect" key={ i }>{ tag }</span>
-          ))}
+          <TagList tags={ this.props.page.get('tags') } />
         </div>
       </div>
     );

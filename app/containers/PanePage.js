@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 // Required files
+import TagList from '../components/TagList';
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -13,6 +14,7 @@ class PanePage extends Component {
     return (
       <div className="pane">
         <h3>{ this.props.page.get('title') }</h3>
+        <TagList tags={ this.props.page.get('tags') } />
         <p>{ this.props.page.get('text') }</p>
       </div>
     );
