@@ -51,3 +51,9 @@ export const fetchPage = (id) => {
     .value();
   return setPage(page);
 };
+
+export const updatePage = (page) => {
+  const db = dbConnect();
+  db.find({ id: page.id })
+  .assign(page)
+}
