@@ -12,7 +12,8 @@ class PanePage extends Component {
   render () {
     return (
       <div className="pane">
-        <h4>This is the main Pane</h4>
+        <h3>{ this.props.page.get('title') }</h3>
+        <p>{ this.props.page.get('text') }</p>
       </div>
     );
   }
@@ -21,7 +22,7 @@ class PanePage extends Component {
 /* -----------------    CONTAINER     ------------------ */
 
 const mapProps = (state) => ({
-  pages: state.pages
+  page: state.pages.get('selectedPage')
 });
 const mapDispatch = null;
 
