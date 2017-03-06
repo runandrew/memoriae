@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 // Required files
 import PageListItem from '../components/PageListItem';
+import { fetchPage } from '../reducers/pages';
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -14,7 +15,9 @@ class PanePages extends Component {
     return (
       <div className="pane pane-side">
         <div className="list-group">
-          { this.props.pages.map((page, i) => (<PageListItem page={ page } key={ i }/>)) }
+          { this.props.pages.map((page, i) => (
+            <PageListItem page={ page } key={ i } handleClick={ this.props.handleClick }/>
+          )) }
         </div>
       </div>
     );
@@ -23,9 +26,11 @@ class PanePages extends Component {
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapProps = (state) => ({
-  pages: state.pages
+const mapProps = state => ({
+  pages: state.pages.get('allPages')
 });
-const mapDispatch = null;
+const mapDispatch = dispatch => ({
+  handleClick: (id) => dispatch(fetchPage(id))
+});
 
 export default connect(mapProps, mapDispatch)(PanePages);
