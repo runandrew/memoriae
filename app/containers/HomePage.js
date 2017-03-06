@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Required files
-import Home from '../components/Home';
 import PanePages from './PanePages';
 import PanePage from './PanePage';
 import { dbConnect } from '../utils/database';
