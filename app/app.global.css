@@ -79,3 +79,13 @@ body {
   border-radius: 5px;
   display: inline-block;
 }
+
+/* UTILITY */
+
+.noselect {
+  user-select: none;
+}
+
+.noselect:hover {
+    cursor: default;
+}
