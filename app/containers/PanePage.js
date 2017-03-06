@@ -42,14 +42,14 @@ class PanePage extends Component {
 
   render () {
     return (
-      <div className="pane">
+      <div className="pane pane-padding">
         <input
           type="text"
           value={ this.state.page.title }
           onChange={ evt => this.onPageUpdate({ title: evt.target.value })}
           contentEditable={ true }
+          className="page-input page-input-title"
         />
-        <h3>{ this.props.page.get('title') }</h3>
         <TagList tags={ this.props.page.get('tags') } />
         <p>{ this.props.page.get('text') }</p>
       </div>
@@ -70,7 +70,7 @@ const mapProps = (state) => ({
 });
 const mapDispatch = dispatch => ({
   updatePage: (page) => {
-    editPage(page);
+    dispatch(editPage(page));
   }
 });
 

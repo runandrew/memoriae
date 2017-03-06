@@ -22,7 +22,7 @@ export const setPageId = pageId => ({
 
 const updatePage = page => ({
   type: UPDATE_PAGE,
-  page
+  page: immutable.fromJS(page)
 });
 
 /* ------------       REDUCER     ------------------ */
@@ -38,6 +38,11 @@ export default function reducer (prevState = initialPages, action) {
       return prevState.set('allPages', action.pages);
     case SET_PAGE_ID:
       return prevState.set('pageId', action.pageId);
+    case UPDATE_PAGE: {
+      const index = prevState.get('allPages').findIndex(page => page.get('id') === action.page.get('id'));
+      return prevState.setIn(['allPages', index], action.page);
+    }
+
     default: return prevState;
   }
 }
@@ -56,4 +61,5 @@ export const editPage = (page) => {
     .find({ id: page.id })
     .assign(page)
     .write();
+  return updatePage(page);
 };
