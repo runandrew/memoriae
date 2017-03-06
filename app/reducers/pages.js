@@ -1,3 +1,6 @@
+// Required libraries
+import immutable from 'immutable';
+
 // Required files
 import { dbConnect } from '../utils/database';
 
@@ -9,12 +12,12 @@ const setPages = pages => ({ type: SET_PAGES, pages });
 
 /* ------------       REDUCER     ------------------ */
 
-const initialPages = [];
+const initialPages = immutable.List([]);
 
 export default function reducer (prevState = initialPages, action) {
   switch (action.type) {
     case SET_PAGES:
-      return action.pages;
+      return immutable.List(action.pages);
     default: return prevState;
   }
 }
