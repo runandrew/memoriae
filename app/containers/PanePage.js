@@ -5,17 +5,14 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 // Required files
-import PageListItem from '../components/PageListItem';
 
 /* -----------------    COMPONENT     ------------------ */
 
-class PanePages extends Component {
+class PanePage extends Component {
   render () {
     return (
-      <div className="pane pane-side">
-        <div className="list-group">
-          { this.props.pages.map((page, i) => (<PageListItem page={ page } key={ i }/>)) }
-        </div>
+      <div className="pane">
+        <h4>This is the main Pane</h4>
       </div>
     );
   }
@@ -28,4 +25,4 @@ const mapProps = (state) => ({
 });
 const mapDispatch = null;
 
-export default connect(mapProps, mapDispatch)(PanePages);
+export default connect(mapProps, mapDispatch)(PanePage);
