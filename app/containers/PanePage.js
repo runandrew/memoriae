@@ -16,17 +16,22 @@ class PanePage extends Component {
     this.state = {
       page: {
         title: props.page.get('title'),
-        text: 'Text'
+        text: props.page.get('text'),
+        id: props.page.get('id'),
+        tags: props.page.get('tags').toJS()
       }
     };
   }
 
   onPageUpdate (pageUpdateObj) {
     const { page } = this.state;
+    const finalPage = Object.assign(page, pageUpdateObj);
 
     this.setState({
-      page: Object.assign(page, pageUpdateObj)
+      page: finalPage
     });
+
+    this.props.updatePage(finalPage);
   }
 
   componentWillReceiveProps (newProps) {
@@ -54,12 +59,19 @@ class PanePage extends Component {
 
 /* -----------------    CONTAINER     ------------------ */
 
+// Required files
+import { editPage } from '../reducers/pages';
+
 const mapProps = (state) => ({
   page: state.pages.get('allPages')
   .find(page => {
     return page.get('id') === state.pages.get('pageId');
   }) || immutable.Map({})
 });
-const mapDispatch = null;
+const mapDispatch = dispatch => ({
+  updatePage: (page) => {
+    editPage(page);
+  }
+});
 
 export default connect(mapProps, mapDispatch)(PanePage);
