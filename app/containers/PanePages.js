@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 // Required files
 import PageListItem from '../components/PageListItem';
-import { fetchPage } from '../reducers/pages';
+import { fetchPage, setPageId } from '../reducers/pages';
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -36,7 +36,10 @@ const mapProps = state => ({
   page: state.pages.get('selectedPage')
 });
 const mapDispatch = dispatch => ({
-  handleClick: (id) => dispatch(fetchPage(id))
+  handleClick: (id) => {
+    dispatch(fetchPage(id));
+    dispatch(setPageId(id));
+  }
 });
 
 export default connect(mapProps, mapDispatch)(PanePages);

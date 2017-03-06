@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import immutable from 'immutable';
 
 // Required files
 import TagList from '../components/TagList';
@@ -52,7 +53,10 @@ class PanePage extends Component {
 /* -----------------    CONTAINER     ------------------ */
 
 const mapProps = (state) => ({
-  page: state.pages.get('selectedPage')
+  page: state.pages.get('allPages')
+  .find(page => {
+    return page.get('id') === state.pages.get('pageId');
+  }) || immutable.Map({})
 });
 const mapDispatch = null;
 
