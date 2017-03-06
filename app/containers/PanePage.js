@@ -15,7 +15,7 @@ class PanePage extends Component {
 
     this.state = {
       page: {
-        title: props.page.title,
+        title: props.page.get('title'),
         text: 'Text'
       }
     };
@@ -39,8 +39,10 @@ class PanePage extends Component {
     return (
       <div className="pane">
         <input
+          type="text"
           value={ this.state.page.title }
           onChange={ evt => this.onPageUpdate({ title: evt.target.value })}
+          contentEditable={ true }
         />
         <h3>{ this.props.page.get('title') }</h3>
         <TagList tags={ this.props.page.get('tags') } />
