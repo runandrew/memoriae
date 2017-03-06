@@ -11,7 +11,7 @@ const SET_PAGE = 'SET_PAGE';
 /* ------------   ACTION CREATORS     ------------------ */
 const setPages = pages => ({
   type: SET_PAGES,
-  pages: immutable.List(pages)
+  pages: immutable.fromJS(pages)
 });
 
 const setPage = page => ({
@@ -49,6 +49,5 @@ export const fetchPage = (id) => {
   const page = db.get('pages')
     .find({ id })
     .value();
-  console.log('found page', page, 'id', id);
   return setPage(page);
 };

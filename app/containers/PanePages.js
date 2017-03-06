@@ -16,8 +16,13 @@ class PanePages extends Component {
       <div className="pane pane-side">
         <div className="list-group">
           { this.props.pages.map((page, i) => (
-            <PageListItem page={ page } key={ i } handleClick={ this.props.handleClick }/>
-          )) }
+            <PageListItem
+              page={ page }
+              key={ i }
+              handleClick={ this.props.handleClick }
+              active={ page.get('id') === this.props.page.get('id') }
+            />
+          ))}
         </div>
       </div>
     );
@@ -27,7 +32,8 @@ class PanePages extends Component {
 /* -----------------    CONTAINER     ------------------ */
 
 const mapProps = state => ({
-  pages: state.pages.get('allPages')
+  pages: state.pages.get('allPages'),
+  page: state.pages.get('selectedPage')
 });
 const mapDispatch = dispatch => ({
   handleClick: (id) => dispatch(fetchPage(id))
