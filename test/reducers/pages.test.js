@@ -2,7 +2,7 @@
 import immutable from 'immutable';
 
 // Required files
-import { setPages, setPageId } from '../../app/reducers/pages';
+import { setPages, setPageId, updatePage } from '../../app/reducers/pages';
 import pages from '../../app/reducers/pages';
 
 // Fake some unrelated functions so the tests can run
@@ -35,16 +35,12 @@ describe('reducers', () => {
       expect(returnedState.get('pageId')).toBe(1);
     });
 
-    // it('should handle INCREMENT_COUNTER', () => {
-    //   expect(pages(1, { type: INCREMENT_COUNTER })).toBe(2);
-    // });
-    //
-    // it('should handle DECREMENT_COUNTER', () => {
-    //   expect(pages(1, { type: DECREMENT_COUNTER })).toBe(0);
-    // });
-    //
-    // it('should handle unknown action type', () => {
-    //   expect(pages(1, { type: 'unknown' })).toBe(1);
-    // });
+    it('should update a certain page', () => {
+      const updatedPage = testDB.pages[0];
+      updatedPage.title = `I'm a changed title.`;
+      const actionUpdatePage = updatePage(updatedPage);
+      let returnedState = pages(initialState, actionUpdatePage);
+      expect(returnedState.getIn(['allPages', 0, 'title'])).toBe(`I'm a changed title.`);
+    });
   });
 });

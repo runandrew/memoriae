@@ -20,7 +20,7 @@ export const setPageId = pageId => ({
   pageId
 });
 
-const updatePage = page => ({
+export const updatePage = page => ({
   type: UPDATE_PAGE,
   page: immutable.fromJS(page)
 });
