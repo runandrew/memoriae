@@ -1,12 +1,9 @@
 // @flow
-// Required libraries
 import { combineReducers } from 'redux';
-
-// Required files
-import pages from './pages';
+import { routerReducer as routing } from 'react-router-redux';
 
 const rootReducer = combineReducers({
-  pages
+  routing
 });
 
 export default rootReducer;

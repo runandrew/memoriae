@@ -1,8 +1,6 @@
 // Required libraries
 const remote = require('electron').remote;
 const dialog = remote.dialog;
-
-// Required files
 const { settings } = require('./userSettings');
 
 const getDbPathUserInput = () => {

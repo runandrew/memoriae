@@ -6,20 +6,16 @@ const path = require('path');
 // Required files
 const { getDbPath } = require('./userSettings');
 
-const dbConnect = () => {
-  // Get the path to the database
-  const dbPath = getDbPath();
+// Get the path to the database
+const dbPath = getDbPath();
 
-  // Grab the db at the user settings path
-  const db = low(path.join(dbPath, 'memoriaeDB.json'), { storage });
+// Grab the db at the user settings path
+const db = low(path.join(dbPath, 'memoriaeDB.json'), { storage });
 
-  // If it's a fresh database, then write default values
-  db.defaults({ pages: [] })
-  .write();
-
-  return db;
-};
+// If it's a fresh database, then write default values
+db.defaults({ pages: [] })
+.write();
 
 module.exports = {
-  dbConnect
+  db
 };
