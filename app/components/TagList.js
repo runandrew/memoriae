@@ -6,7 +6,7 @@ export default class TagList extends Component {
   render () {
     return (
       <span>
-        { this.props.tags.map((tag, i) => (
+        { this.props.tags && this.props.tags.map((tag, i) => (
           <span className="tag-group-item noselect" key={ i }>{ tag }</span>
         ))}
       </span>

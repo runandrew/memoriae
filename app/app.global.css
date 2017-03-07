@@ -46,6 +46,10 @@ body {
   flex: none;
 }
 
+.pane-padding {
+  padding: 1rem;
+}
+
 /* LIST GROUPS */
 
 .list-group {
@@ -88,4 +92,19 @@ body {
 
 .noselect:hover {
     cursor: default;
+}
+
+/* INPUTS */
+
+.page-input {
+  display: block;
+  background-color: inherit;
+  border: none;
+  width: 100%;
+}
+
+.page-input-title {
+  padding: 5px 0px;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
