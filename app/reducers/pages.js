@@ -10,7 +10,7 @@ const SET_PAGE_ID = 'SET_PAGE_ID';
 const UPDATE_PAGE = 'UPDATE_PAGE';
 
 /* ------------   ACTION CREATORS     ------------------ */
-const setPages = pages => ({
+export const setPages = pages => ({
   type: SET_PAGES,
   pages: immutable.fromJS(pages)
 });
@@ -20,7 +20,7 @@ export const setPageId = pageId => ({
   pageId
 });
 
-const updatePage = page => ({
+export const updatePage = page => ({
   type: UPDATE_PAGE,
   page: immutable.fromJS(page)
 });
