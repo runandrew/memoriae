@@ -1,13 +1,13 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
+  "name": "memoriae",
+  "productName": "memoriae",
   "version": "0.10.0",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "description": "An open-source notebook for programmers.",
   "main": "main.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 jest \"(\\\\|/)test(\\\\|/)(?!.*e2e\\.spec\\.js).+\\.spec\\.js\"",
+    "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 jest",
     "test-all": "npm run lint && npm run flow && npm run test && npm run build",
-    "test-watch": "npm test -- --watch",
+    "test-watch": "npm test --watch",
     "test-e2e": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 jest ./test/e2e.spec.js",
     "lint": "eslint --cache --format=node_modules/eslint-formatter-pretty .",
     "lint-fix": "npm run lint -- --fix",
@@ -29,7 +29,7 @@
   },
   "browserslist": "electron 1.4",
   "build": {
-    "productName": "ElectronReact",
+    "productName": "memoriae",
     "appId": "org.develar.ElectronReact",
     "category": "public.app-category.tools",
     "dmg": {
@@ -181,6 +181,7 @@
     "electron-debug": "^1.1.0",
     "electron-settings": "^2.2.2",
     "font-awesome": "^4.7.0",
+    "immutable": "^3.8.1",
     "lowdb": "^0.15.5",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
