@@ -13,6 +13,7 @@ class PanePage extends Component {
   constructor (props) {
     super(props);
 
+    console.log('this is the page in constructor', props.page);
     this.state = {
       page: {
         title: props.page.get('title'),
@@ -35,6 +36,7 @@ class PanePage extends Component {
   }
 
   componentWillReceiveProps (newProps) {
+    console.log('willReceiveProps', newProps);
     this.setState({
       page: newProps.page.toJS()
     });

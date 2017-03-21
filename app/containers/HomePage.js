@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 // Required files
 import PanePages from './PanePages';
 import PanePage from './PanePage';
+import PaneBlank from '../components/PaneBlank';
 import { dbConnect } from '../utils/database';
 
 /* -----------------    COMPONENT     ------------------ */
@@ -14,7 +15,7 @@ const HomePage = ({ pages }) => (
   <div>
     <div className="pane-group">
       <PanePages />
-      <PanePage />
+      { pages.get('allPages').size ? <PanePage /> : <PaneBlank /> }
     </div>
   </div>
 );
