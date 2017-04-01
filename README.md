@@ -30,6 +30,12 @@ Or run two servers with one command:
 npm run dev
 ```
 
+### Testing
+To test the codebase:
+```
+npm test
+```
+
 ### Packaging
 To package the application for distribution:
 ```
