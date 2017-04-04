@@ -1,5 +1,5 @@
 // Required libraries
-import immutable from 'immutable';
+import Immutable from 'immutable';
 
 // Required files
 import { setPages, setPageId, updatePage } from '../../app/reducers/pages';
@@ -9,7 +9,7 @@ import pages from '../../app/reducers/pages';
 jest.mock('../../app/utils/userSettings');
 
 describe('reducers', () => {
-  const initialState = immutable.fromJS({
+  const initialState = Immutable.fromJS({
     allPages: [],
     pageId: 0
   });
@@ -38,7 +38,7 @@ describe('reducers', () => {
     it('should update a certain page', () => {
       const updatedPage = testDB.pages[0];
       updatedPage.title = `I'm a changed title.`;
-      const actionUpdatePage = updatePage(updatedPage);
+      const actionUpdatePage = updatePage(Immutable.fromJS(updatedPage));
       let returnedState = pages(initialState, actionUpdatePage);
       expect(returnedState.getIn(['allPages', 0, 'title'])).toBe(`I'm a changed title.`);
     });
