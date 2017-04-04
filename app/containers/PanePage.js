@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import immutable from 'immutable';
+import Textarea from 'react-textarea-autosize';
 
 // Required files
 import TagList from '../components/TagList';
@@ -13,20 +14,14 @@ class PanePage extends Component {
   constructor (props) {
     super(props);
 
-    console.log('this is the page in constructor', props.page);
     this.state = {
-      page: {
-        title: props.page.get('title'),
-        text: props.page.get('text'),
-        id: props.page.get('id'),
-        tags: props.page.get('tags').toJS()
-      }
+      page: props.page
     };
   }
 
   onPageUpdate (pageUpdateObj) {
     const { page } = this.state;
-    const finalPage = Object.assign(page, pageUpdateObj); // Heads up: only shallow copy
+    const finalPage = page.merge(pageUpdateObj);
 
     this.setState({
       page: finalPage
@@ -36,9 +31,8 @@ class PanePage extends Component {
   }
 
   componentWillReceiveProps (newProps) {
-    console.log('willReceiveProps', newProps);
     this.setState({
-      page: newProps.page.toJS()
+      page: newProps.page
     });
   }
 
@@ -47,17 +41,15 @@ class PanePage extends Component {
       <div className="pane pane-padding">
         <input
           type="text"
-          value={ this.state.page.title }
+          value={ this.state.page.get('title') }
           onChange={ evt => this.onPageUpdate({ title: evt.target.value })}
           contentEditable={ true }
           className="page-input page-input-title"
         />
         <TagList tags={ this.props.page.get('tags') } />
-        <input
-          type="text"
+        <Textarea
           value={ this.props.page.get('text') }
           onChange={ evt => this.onPageUpdate({ text: evt.target.value }) }
-          contentEditable={ true }
           className="page-input page-input-text"
         />
       </div>

@@ -22,7 +22,7 @@ export const setPageId = pageId => ({
 
 export const updatePage = page => ({
   type: UPDATE_PAGE,
-  page: immutable.fromJS(page)
+  page
 });
 
 /* ------------       REDUCER     ------------------ */
@@ -57,9 +57,10 @@ export const fetchPages = () => {
 
 export const editPage = (page) => {
   const db = dbConnect();
+  const pageJS = page.toJS();
   db.get('pages')
-    .find({ id: page.id })
-    .assign(page)
+    .find({ id: pageJS.id })
+    .assign(pageJS)
     .write();
   return updatePage(page);
 };

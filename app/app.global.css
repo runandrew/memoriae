@@ -113,4 +113,7 @@ body {
   padding: 5px 0px;
   margin: 20px 0px 0px 0px;
   font-size: 1rem;
+  width: 100%;
+  min-height: 30px;
+  resize: none;
 }
