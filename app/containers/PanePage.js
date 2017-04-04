@@ -26,7 +26,7 @@ class PanePage extends Component {
 
   onPageUpdate (pageUpdateObj) {
     const { page } = this.state;
-    const finalPage = Object.assign(page, pageUpdateObj);
+    const finalPage = Object.assign(page, pageUpdateObj); // Heads up: only shallow copy
 
     this.setState({
       page: finalPage
@@ -53,7 +53,13 @@ class PanePage extends Component {
           className="page-input page-input-title"
         />
         <TagList tags={ this.props.page.get('tags') } />
-        <p>{ this.props.page.get('text') }</p>
+        <input
+          type="text"
+          value={ this.props.page.get('text') }
+          onChange={ evt => this.onPageUpdate({ text: evt.target.value }) }
+          contentEditable={ true }
+          className="page-input page-input-text"
+        />
       </div>
     );
   }

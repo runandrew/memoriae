@@ -3,7 +3,7 @@
     {
       "id": 0,
       "title": "Buy milk test",
-      "text": "Last time I was at the grocery, I forgot to buy the milk.",
+      "text": "Last time I was at the grocery, I forgot to buy the milk.This is a test to see how well this is working as a test",
       "tags": [
         "life",
         "milk",
@@ -23,7 +23,7 @@
     {
       "id": 2,
       "title": "Remember this thing, you'll know why.",
-      "text": "Just do it.",
+      "text": "Just do it. This is a test",
       "tags": [
         "memories",
         "fellowship",

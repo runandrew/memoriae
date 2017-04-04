@@ -108,3 +108,9 @@ body {
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+.page-input-text {
+  padding: 5px 0px;
+  margin: 20px 0px 0px 0px;
+  font-size: 1rem;
+}
