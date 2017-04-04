@@ -1,5 +1,5 @@
 // Required libraries
-import immutable from 'immutable';
+import Immutable from 'immutable';
 
 // Required files
 import { dbConnect } from '../utils/database';
@@ -12,7 +12,7 @@ const UPDATE_PAGE = 'UPDATE_PAGE';
 /* ------------   ACTION CREATORS     ------------------ */
 export const setPages = pages => ({
   type: SET_PAGES,
-  pages: immutable.fromJS(pages)
+  pages 
 });
 
 export const setPageId = pageId => ({
@@ -27,7 +27,7 @@ export const updatePage = page => ({
 
 /* ------------       REDUCER     ------------------ */
 
-const initialPages = immutable.fromJS({
+const initialPages = Immutable.fromJS({
   allPages: [],
   pageId: 0
 });
@@ -52,7 +52,7 @@ export default function reducer (prevState = initialPages, action) {
 export const fetchPages = () => {
   const db = dbConnect();
   const pages = db.get('pages').value();
-  return setPages(pages);
+  return setPages(Immutable.fromJS(pages));
 };
 
 export const editPage = (page) => {

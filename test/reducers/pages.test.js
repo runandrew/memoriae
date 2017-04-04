@@ -24,7 +24,7 @@ describe('reducers', () => {
     });
 
     it('should load the fetched pages', () => {
-      const actionSetPages = setPages(testDB.pages);
+      const actionSetPages = setPages(Immutable.fromJS(testDB.pages));
       let returnedState = pages(initialState, actionSetPages);
       expect(returnedState.get('allPages').size).toBe(3);
     });
